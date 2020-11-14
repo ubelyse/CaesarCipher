@@ -5,12 +5,28 @@ public class CaesarCipher {
     String chara;
     int numbe;
 
-    public CaesarCipher(String chara,int numbe) {
-            this.chara=chara;
-            this.numbe=numbe;
+    public CaesarCipher(String chara, int numbe) {
+        this.chara = chara;
+        this.numbe = numbe;
     }
 
-    public static char RotateEndofAlphabet(char y,int a){
+    public String getChara() {
+        return chara;
+    }
+
+    public void setChara(String chara) {
+        this.chara = chara;
+    }
+
+    public int getNumbe() {
+        return numbe;
+    }
+
+    public void setNumbe(int numbe) {
+        this.numbe = numbe;
+    }
+
+    public static char rotateEndofAlphabet(char y, int a) {
 
         final int lengthofalphabets = 26;
         //ascii has different codes according to letter so this line is checking whether letter is upper or lower case
@@ -23,5 +39,18 @@ public class CaesarCipher {
         return (char) (shifted + asciiShift);
     }
 
+    // Rotating normally
+    public String rotateEndofAlphabet(){
+        StringBuilder stringBuilder=new StringBuilder();
+        for(int i=0;i<chara.length();i++){
+            if (chara.charAt(i)==' '){
+                stringBuilder.append("");
+            }
+            else {
+                stringBuilder.append(rotateEndofAlphabet(chara.charAt(i), numbe));
+            }
+        }
+        return stringBuilder.toString();
+    }
 }
 

@@ -18,7 +18,14 @@ public class CaesarCipherTest{
     public void newCaesarCipher_rotateafterendofalphabets()  {
         char input='y';
         char output='d';
-        assertEquals(output,CaesarCipher.RotateEndofAlphabet(input, 5));
+        assertEquals(output,CaesarCipher.rotateEndofAlphabet(input, 5));
+    }
+
+    @Test
+    public void newCaesarCipher_rotatenormally()  {
+        char input='a';
+        char output='g';
+        assertEquals(output,CaesarCipher.rotateEndofAlphabet(input, 6));
     }
 
 }
