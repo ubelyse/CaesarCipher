@@ -12,4 +12,13 @@ public class CaesarCipherTest{
         assertEquals(true, testCaesarCipher instanceof CaesarCipher);
     }
 
+    //Testing at the end of alphabets how it rotates
+
+    @Test
+    public void newCaesarCipher_rotateafterendofalphabets()  {
+        char input='y';
+        char output='d';
+        assertEquals(output,CaesarCipher.RotateEndofAlphabet(input, 5));
+    }
+
 }
